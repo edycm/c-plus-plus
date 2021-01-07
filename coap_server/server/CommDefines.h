@@ -1,0 +1,8 @@
+#ifndef IOT_COMMON_DEFINE_H_
+#define IOT_COMMON_DEFINE_H_
+
+#define DEV_AUTH_OK 200
+#define TOPIC_SEPERATOR "."
+#define TOPIC_FIELDS_NUM 5
+
+#endif  // IOT_COMMON_DEFINE_H_

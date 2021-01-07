@@ -1,0 +1,8 @@
+/home/cys/coap/coap_server/build/CMakeFiles/edit_cache.dir
+/home/cys/coap/coap_server/build/CMakeFiles/rebuild_cache.dir
+/home/cys/coap/coap_server/build/server/CMakeFiles/edit_cache.dir
+/home/cys/coap/coap_server/build/server/CMakeFiles/rebuild_cache.dir
+/home/cys/coap/coap_server/build/server/CMakeFiles/coap_server.dir
+/home/cys/coap/coap_server/build/client/CMakeFiles/edit_cache.dir
+/home/cys/coap/coap_server/build/client/CMakeFiles/rebuild_cache.dir
+/home/cys/coap/coap_server/build/client/CMakeFiles/coap_client.dir
