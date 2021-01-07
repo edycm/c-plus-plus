@@ -205,7 +205,8 @@ void WSClient::start(const std::string& hostname, const std::string& port, std::
 #ifdef TLS
 	uri = "wss://" + hostname + ":" + port;
 	//uri = "wss://192.168.10.37:9002";
-	ca_file = "ca.pem";
+	if (ca_file.empty())
+		ca_file = "ca.pem";
 	m_client.set_tls_init_handler(std::bind(&WSClient::on_tls_init, this, hostname.c_str(), ca_file.c_str(), std::placeholders::_1));
 #else
 	uri = "ws://" + hostname + ":" + port;

@@ -11,6 +11,9 @@ int main(int argc, char* argv[]) {
         cert_file = argv[1];
         dh_file = argv[2];
         port = argv[3];
+    } else {
+        std::cout << "Usage: " << argv[0] << " [cert_file] [dh_file] [port]" << std::endl;
+        return -1;
     }
 
     WSServer server;

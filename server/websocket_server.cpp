@@ -58,22 +58,22 @@ void WSServer::on_push() {
     int i = 1;
     while (m_is_running)
     {
-        std::unique_lock<std::mutex> lck(m_mutex);
         if (!(i++ % 10)) {
             std::cout << "vec_hdl size: " << m_set_hdl.size() << std::endl;
             i = 1;
+            std::unique_lock<std::mutex> lck(m_mutex);
+            std::for_each(m_set_hdl.begin(), m_set_hdl.end(), \
+                [&](std::set< websocketpp::connection_hdl, std::owner_less<websocketpp::connection_hdl>>::value_type value) {
+                    m_server.send(value, get_current_time() + ": server Timed push!", websocketpp::frame::opcode::text);
+                });
+            //lck.unlock();
         }
-        std::for_each(m_set_hdl.begin(), m_set_hdl.end(), \
-            [&](std::set< websocketpp::connection_hdl, std::owner_less<websocketpp::connection_hdl>>::value_type value) {
-                m_server.send(value, get_current_time() + ": server Timed push!", websocketpp::frame::opcode::text);
-            });
-        lck.unlock();
-        std::this_thread::sleep_for(std::chrono::seconds(10));
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
 
 void WSServer::on_progress() {
-    while (true)
+    while (m_is_running)
     {
         //std::cout << "m_request.size(): " << m_request.size() << std::endl;
         std::unique_lock<std::mutex> lck(m_mutex);
@@ -174,6 +174,9 @@ ContextPtr WSServer::on_tls_init(const char* cert_file, const char* dh_file, tls
     }
     catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
+#ifndef WIN32
+        raise(SIGINT);
+#endif
     }
     return ctx;
 }
@@ -203,12 +206,14 @@ void WSServer::stop() {
     std::cout << "Shutdown..." << std::endl;
     m_is_running = false;
     m_cond.notify_all();
-    if (m_server.is_listening())
-        m_server.stop_listening();
-    m_server.stop();
+
     if (m_process.joinable())
         m_process.join();
     if (m_push.joinable())
         m_push.join();
+
+    if (m_server.is_listening())
+        m_server.stop_listening();
+    m_server.stop();
     //server.stopped();
 }

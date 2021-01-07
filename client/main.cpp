@@ -8,21 +8,17 @@
 
 int main(int argc, char* argv[])
 {
-	WSClient client;
 	std::string hostname = "127.0.0.1", port = "9002", ca_file = "ca.pem";
 	if (argc == 4) {
 		hostname = argv[1];
 		port = argv[2];
 		ca_file = argv[3];
-	}
-	/*
-	else
-	{
-		std::cout << "Usage: ./argv[0] [uri] [ca_file]\nuri eg: ws://localhost:9002" << std::endl;
+	} else {
+		std::cout << "Usage: " << argv[0] << " [hostname] [port] [ca_file]" << std::endl;
 		return -1;
 	}
-	std::cout << "ca_file: " << ca_file << std::endl;
-	*/
+
+	WSClient client;
 	std::thread t = std::thread([&]() {
 		try {
 
@@ -48,7 +44,8 @@ int main(int argc, char* argv[])
 	
 	if (t.joinable())
 		t.join();
-
+#ifdef WIN32
 	system("pause");
+#endif
 	return 0;
 }
