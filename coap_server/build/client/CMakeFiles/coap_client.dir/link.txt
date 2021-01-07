@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11 -g -O0 -fPIC   CMakeFiles/coap_client.dir/client.cpp.o  -o coap_client  -L/home/cys/coap/libcoap/build/lib  -L/home/cys/coap/jsoncpp/build/lib -rdynamic -lpthread -lcoap-2 -Wl,-rpath,/home/cys/coap/libcoap/build/lib:/home/cys/coap/jsoncpp/build/lib 
