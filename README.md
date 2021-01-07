@@ -1,5 +1,8 @@
 # websocket_test
 
+基于websocketpp测试ssl加密通信
+
+
 cd websocket_test
 
 mkdir build
