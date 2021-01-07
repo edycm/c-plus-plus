@@ -8,6 +8,11 @@
     需要openssl和boost
 
 
+生成证书
+
+    ./generate_ca.sh
+
+
 编译
 
     cd websocket_test
@@ -19,7 +24,7 @@
     cmake ..
     
     make
-
+    
 
 运行
 
