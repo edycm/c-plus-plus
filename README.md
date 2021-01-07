@@ -3,19 +3,19 @@
 
 编译
 
-  cd websocket_test
+	cd websocket_test
 
-  mkdir build
+	mkdir build
 
-  cd build
+	cd build
 
-  cmake ..
+    cmake ..
 
-  make
+	make
   
 
 运行
 
-  server ./server
+  	server ./server
   
-  client ./client/coap_client -m get coap://127.0.0.1/
+  	client ./client/coap_client -m get coap://127.0.0.1/
