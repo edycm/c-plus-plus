@@ -16,6 +16,8 @@
 
     cd build
 
+    cmake ..
+    
     make
 
 
