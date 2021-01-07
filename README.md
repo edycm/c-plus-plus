@@ -30,4 +30,4 @@
 
     client
 
-    ./bin/websocket_client 192.168.10.37 9002 ../ca/ca.pem
+    ./bin/websocket_client 127.0.0.1 9002 ../ca/ca.pem
