@@ -13,7 +13,7 @@ CLIENT_IP=127.0.0.1
 
 #ca
 openssl genrsa -out ca/ca.key 2048
-openssl req -x509 -new -days 365 -key ca/ca.key -out ca/ca.pem -subj "/C=CN/ST=SiChuan/L=ChengDu/O=Device Certificate/OU=IOT/CN=192.168.10.35"
+openssl req -x509 -new -days 365 -key ca/ca.key -out ca/ca.pem -subj "/C=CN/ST=SiChuan/L=ChengDu/O=Device Certificate/OU=IOT/CN=127.0.0.1"
 
 #server
 openssl genrsa -out ca/server.key 2048
