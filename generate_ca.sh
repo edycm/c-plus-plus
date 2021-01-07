@@ -26,3 +26,5 @@ openssl genrsa -out ca/client.key 2048
 openssl req -new -key ca/ca.key -out ca/client.csr -subj "/C=CN/ST=SiChuan/L=ChengDu/O=Device Certificate/OU=IOT/CN=$CLIENT_IP"
 openssl x509 -req -in ca/client.csr -out ca/client.crt -CAkey ca/ca.key -CA ca/ca.pem -days 365 -sha1 -extensions v3_req -CAcreateserial -CAserial ca/client.srl
 cat ca/client.crt ca/client.key >ca/client.pem
+
+openssl dhparam -out ca/dh.pem 2048
