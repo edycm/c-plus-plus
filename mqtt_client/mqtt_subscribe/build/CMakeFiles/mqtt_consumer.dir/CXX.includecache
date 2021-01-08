@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cys/mqtt/mqtt_consumer/Consumer.cpp
+mosquitto.h
+/home/cys/mqtt/mqtt_consumer/mosquitto.h
+LogManager.h
+/home/cys/mqtt/mqtt_consumer/LogManager.h
+thread
+-
+string
+-
+
+/home/cys/mqtt/mqtt_consumer/LogManager.h
+iostream
+-
+string
+-
+time.h
+-
+fstream
+-
+

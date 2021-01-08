@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -o0 -Wall -std=c++11 -fPIC   CMakeFiles/mqtt_publish.dir/publish.cpp.o  -o mqtt_publish  -L/home/cys/mqtt/mqtt_server/mosquitto/bin/lib -rdynamic -lmosquitto -lpthread -Wl,-rpath,/home/cys/mqtt/mqtt_server/mosquitto/bin/lib 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -o0 -Wall -std=c++11 -fPIC   CMakeFiles/mqtt_consumer.dir/Consumer.cpp.o  -o mqtt_consumer  -L/home/cys/mqtt/mqtt_server/mosquitto/bin/lib -rdynamic -lmosquitto -Wl,-rpath,/home/cys/mqtt/mqtt_server/mosquitto/bin/lib 
