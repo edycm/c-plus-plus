@@ -123,11 +123,9 @@ ContextPtr WSServer::on_tls_init(const char* cert_file, const char* dh_file, tls
     std::cout << "on_tls_init called with hdl: " << hdl.lock().get() << std::endl;
     std::cout << "using TLS mode: " << (mode == tls_mode::MOZILLA_MODERN ? "Mozilla Modern" : "Mozilla Intermediate") << std::endl;
 
-    //ContextPtr ctx = websocketpp::lib::make_shared<asio::ssl::context>(asio::ssl::context::sslv23);
     ContextPtr ctx = websocketpp::lib::make_shared<asio::ssl::context>(asio::ssl::context::sslv23);
 
     try {
-#if 1
         if (mode == tls_mode::MOZILLA_MODERN) {
             // Modern disables TLSv1
             ctx->set_options(asio::ssl::context::default_workarounds |
@@ -142,12 +140,7 @@ ContextPtr WSServer::on_tls_init(const char* cert_file, const char* dh_file, tls
                 asio::ssl::context::no_sslv3 |
                 asio::ssl::context::single_dh_use);
         }
-#else
-        ctx->set_options(
-            boost::asio::ssl::context::default_workarounds
-            | boost::asio::ssl::context::no_sslv2
-            | boost::asio::ssl::context::single_dh_use);
-#endif
+        
         //ctx->set_password_callback([]() {return "test"; });
         ctx->set_password_callback(bind(&WSServer::get_password, this));
 
