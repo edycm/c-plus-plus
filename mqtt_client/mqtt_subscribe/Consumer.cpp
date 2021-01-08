@@ -56,7 +56,7 @@ void on_disconnect(struct mosquitto* mosq, void* userdata, int)
 	LOG << "send reconnect message success";
 }
 
-void mqtt_consumer_test(int argc, char* argv[])
+void mqtt_consumer_test(const char* cafile, const char* capath, const char* certfile, const char* key, const char* ip, const char* port)
 {
 	LOG << "consumer start";
 	bool clean_session = true;
@@ -80,8 +80,8 @@ void mqtt_consumer_test(int argc, char* argv[])
 	mosquitto_disconnect_callback_set(mosq, on_disconnect);
 	mosquitto_username_pw_set(mosq, "root", "123456");
 
-	ret = mosquitto_tls_set(mosq, "./conf/mqttCA/ca/ca.crt", "./conf/mqttCA/ca", \
-		"./conf/mqttCA/client/client.crt", "/conf/mqttCA/ca/ca.key", NULL);
+	ret = mosquitto_tls_set(mosq, cafile, capath, \
+		certfile, key, NULL);
 	if (ret)
 	{
 		if (ret == MOSQ_ERR_INVAL) {
@@ -96,7 +96,7 @@ void mqtt_consumer_test(int argc, char* argv[])
 
 	while (true)
 	{
-		ret = mosquitto_connect_bind_v5(mosq, "127.0.0.1", 1883, 10, NULL, NULL);
+		ret = mosquitto_connect_bind_v5(mosq, ip, atoi(port), 10, NULL, NULL);
 		if (ret)
 		{
 			LOG << "connect error, ret: " << ret;
@@ -129,6 +129,12 @@ void mqtt_consumer_test(int argc, char* argv[])
 
 int main(int argc, char*argv[])
 {
-	mqtt_consumer_test(argc, argv);
+	if (argc != 7)
+	{
+		std::cout << "Usage: " << argv[0] << " [cafile] [capath] [certfile] [key] [ip] [port]" << std::endl;
+		return 0;
+	}
+
+	mqtt_consumer_test(argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 	return 0;
 }

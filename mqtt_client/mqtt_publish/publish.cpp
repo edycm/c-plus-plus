@@ -71,7 +71,7 @@ void SetMQTTCallBack(struct mosquitto* mosq)
 	//mosquitto_publish_callback_set(mosq, on_publish);
 }
 
-void mqtt_publish_test()
+void mqtt_publish_test(const char* cafile, const char* server_crt, const char* server_key, const char* ca_path, const char* ip , const char* port)
 {
 	LOG << "publish start";
 	bool clean_session = true;
@@ -92,9 +92,9 @@ void mqtt_publish_test()
 	mosquitto_username_pw_set(mosq, "root", "123456");
 
 	//tls set
-	const char* cafile = "./conf/mqttCA/ca/ca.crt";
-	const char* server_crt = "./conf/mqttCA/client/server.crt";
-	const char* server_key = "./conf/mqttCA/ca/ca.key";
+	//const char* cafile = "./conf/mqttCA/ca/ca.crt";
+	//const char* server_crt = "./conf/mqttCA/client/server.crt";
+	//const char* server_key = "./conf/mqttCA/ca/ca.key";
 
 
 	ret = mosquitto_tls_set(mosq, cafile, "./conf/mqttCA/ca", server_crt, server_key, NULL);
@@ -114,10 +114,10 @@ void mqtt_publish_test()
 	while (ret)
 	{
 		//ret = mosquitto_connect(mosq, "192.168.10.37", 1883, 10);
-		ret = mosquitto_connect(mosq, "127.0.0.1", 1883, 10);
-		std::cout << "connect ret: " << ret << std::endl;
+		ret = mosquitto_connect(mosq, ip, atoi(port), 10);
+		std::cout << "connect error, ret: " << ret << std::endl;
 		if (ret)
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
 	
 	std::thread t = std::thread([&]() {
@@ -153,8 +153,13 @@ void mqtt_publish_test()
 	return;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	mqtt_publish_test();
+	if (argc != 7) {
+		std::cout << "Usage: " << argv[0] << " [cafile] [crtfile] [key] [capath] [ip] [port]"<< std::endl;
+		return 0;
+	}
+
+	mqtt_publish_test(argv[1], argv[2], argv[3], argv[4], argv[5], argv[6]);
 	return 0;
 }
