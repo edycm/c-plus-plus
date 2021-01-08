@@ -2,6 +2,6 @@
 
 
 
-    ./mqtt_publish ./conf/mqttCA/ca/ca.crt ./conf/mqttCA/server/server.crt ./conf/mqttCA/server/server.key ./conf/mqttCA/ca 127.0.0.1 1883
+    ./mqtt_publish ./ca/ca.crt ./ca/server.crt ./ca/server.key ./ca/ca 127.0.0.1 1883
     
-    ./mqtt_consumer ./conf/mqttCA/ca/ca.crt ./conf/mqttCA/ca ./conf/mqttCA/client/client.crt ./conf/mqttCA/client/client.key 127.0.0.1 1883
+    ./mqtt_consumer ./ca/ca.crt ./ca ./ca/client.crt ./ca/client.key 127.0.0.1 1883
