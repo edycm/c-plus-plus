@@ -6,6 +6,8 @@
     cd bin
     
     ./generate_ca.sh
+    
+    ./mosquitto -c conf/mosquitto.conf
 
     ./mqtt_publish ./ca/ca.crt ./ca/server.crt ./ca/server.key ./ca/ca 127.0.0.1 1883
     
