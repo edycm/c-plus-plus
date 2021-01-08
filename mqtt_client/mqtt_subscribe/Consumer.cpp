@@ -78,14 +78,10 @@ void mqtt_consumer_test(int argc, char* argv[])
 	mosquitto_message_callback_set(mosq, my_message_callback);
 	mosquitto_subscribe_callback_set(mosq, my_subscribe_callback);
 	mosquitto_disconnect_callback_set(mosq, on_disconnect);
-	//mosquitto_publish_callback_set();
-	//mosquitto_publish_callback_set();
-	//ret = mosquitto_connect(mosq, "192.168.10.37", 1883, 10);
 	mosquitto_username_pw_set(mosq, "root", "123456");
-	ret = mosquitto_tls_set(mosq, "../../mqttCA/ca/ca.crt", "../../mqttCA/ca", \
-		"../../mqttCA/client/client.crt", "../../mqttCA/ca/ca.key", NULL);
-	//ret = mosquitto_tls_set(mosq, "../../openssl_generate/ca/ca.crt", "../../openssl_generate/ca",\
-		"../../openssl_generate/client/client.crt", "../../openssl_generate/client/client.key", NULL);
+
+	ret = mosquitto_tls_set(mosq, "./conf/mqttCA/ca/ca.crt", "./conf/mqttCA/ca", \
+		"./conf/mqttCA/client/client.crt", "/conf/mqttCA/ca/ca.key", NULL);
 	if (ret)
 	{
 		if (ret == MOSQ_ERR_INVAL) {
@@ -100,7 +96,7 @@ void mqtt_consumer_test(int argc, char* argv[])
 
 	while (true)
 	{
-		ret = mosquitto_connect_bind_v5(mosq, "192.168.10.37", 1883, 10, NULL, NULL);
+		ret = mosquitto_connect_bind_v5(mosq, "127.0.0.1", 1883, 10, NULL, NULL);
 		if (ret)
 		{
 			LOG << "connect error, ret: " << ret;

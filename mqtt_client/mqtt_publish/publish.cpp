@@ -92,17 +92,12 @@ void mqtt_publish_test()
 	mosquitto_username_pw_set(mosq, "root", "123456");
 
 	//tls set
-	//ret = mosquitto_tls_set(mosq, cfg->cafile, cfg->capath, cfg->certfile, cfg->keyfile, NULL);
-	//ret = mosquitto_tls_set(mosq, ".\\ca\\ca.crt", "", ".\\server\\server.crt", ".\\server\\server.key", NULL);
-	const char* cafile = "../../openssl_generate/ca/ca.crt";
-	const char* server_crt = "../../openssl_generate/client/client.crt";
-	const char* server_key = "../../openssl_generate/client/client.key";
-	//const char* cafile = ".\\ca\\ca.crt";
-	//const char* server_crt = "C:\\Users\\lenovo\\Desktop\\client\\client.crt";
-	//const char* server_key = "C:\\Users\\lenovo\\Desktop\\client\\client.key";
+	const char* cafile = "./conf/mqttCA/ca/ca.crt";
+	const char* server_crt = "./conf/mqttCA/client/server.crt";
+	const char* server_key = "./conf/mqttCA/ca/ca.key";
 
 
-	ret = mosquitto_tls_set(mosq, cafile, "../../openssl_generate/ca", server_crt, server_key, NULL);
+	ret = mosquitto_tls_set(mosq, cafile, "./conf/mqttCA/ca", server_crt, server_key, NULL);
 	if (ret) 
 	{
 		if (ret == MOSQ_ERR_INVAL) {
@@ -119,7 +114,7 @@ void mqtt_publish_test()
 	while (ret)
 	{
 		//ret = mosquitto_connect(mosq, "192.168.10.37", 1883, 10);
-		ret = mosquitto_connect(mosq, "192.168.10.37", 1883, 10);
+		ret = mosquitto_connect(mosq, "127.0.0.1", 1883, 10);
 		std::cout << "connect ret: " << ret << std::endl;
 		if (ret)
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
