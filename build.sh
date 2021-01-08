@@ -6,7 +6,6 @@ CURRENT_PATH=`cd $(dirname $0)&& pwd`
 
 if [ -d mqtt_broker ] || [ ! -d mqtt_client ]; then
 	cd mqtt_broker
-	cp conf ../bin -r
 	[ ! -d build ] && mkdir build
 	cd build 
 	cmake ..
