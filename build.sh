@@ -11,6 +11,11 @@ if [ -d mqtt_broker ] || [ ! -d mqtt_client ]; then
 	make 
 	cp lib 	$CURRENT_PATH/mqtt_client -a
 	cp src/mosquitto ../bin
+	cd ${CURRENT_PATH}/mqtt_client
+	[ ! -d build ] && mkdir build
+	cd build 
+	cmake ..
+	make
 else
 	echo "Directory mqtt_broker not found"	
 fi
