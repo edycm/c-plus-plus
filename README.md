@@ -1,6 +1,9 @@
 # mqtt_test
 
 
+    ./build.sh
+
+    cd bin
 
     ./mqtt_publish ./ca/ca.crt ./ca/server.crt ./ca/server.key ./ca/ca 127.0.0.1 1883
     
