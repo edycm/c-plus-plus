@@ -1,0 +1,7 @@
+﻿  ffmpeg.hpp
+F:\3rdpart\ffmpeg\build\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\vs项目\rtsp_pull\ffmpeg\ffmpeg.hpp(202,9): warning C4101: “number_of_written_bytes”: 未引用的局部变量
+  main.cpp
+F:\3rdpart\ffmpeg\build\include\libavutil\rational.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\vs项目\rtsp_pull\ffmpeg\ffmpeg.hpp(202,9): warning C4101: “number_of_written_bytes”: 未引用的局部变量
+  ffmpeg.vcxproj -> F:\vs项目\rtsp_pull\x64\Debug\ffmpeg.exe

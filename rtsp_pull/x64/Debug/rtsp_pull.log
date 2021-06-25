@@ -1,0 +1,23 @@
+﻿  main.cpp
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(32,21): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(32,21): message : 默认构造函数或 copy/move 赋值运算符将忽略此成员
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(51,20): warning C4200: 使用了非标准扩展: 结构/联合中的零大小数组
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(51,20): message : 默认构造函数或 copy/move 赋值运算符将忽略此成员
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(88,10): warning C4477: “printf”: 格式字符串“%lu”需要类型“unsigned long”的参数，但可变参数 1 拥有了类型“size_t”
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(88,10): message : 请考虑在格式字符串中使用“%zu”
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(88,10): warning C4477: “printf”: 格式字符串“%lu”需要类型“unsigned long”的参数，但可变参数 2 拥有了类型“size_t”
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(88,10): message : 请考虑在格式字符串中使用“%zu”
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(97,51): warning C4267: “+=”: 从“size_t”转换到“uint32_t”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(129,83): warning C4267: “+=”: 从“size_t”转换到“uint32_t”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(131,14): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(164,24): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(172,18): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(385,12): warning C4305: “return”: 从“int”到“bool”截断
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(463,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(475,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(501,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(526,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(591,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(631,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+F:\vs项目\ffmpeg\rtsp_pull\main.cpp(389,12): warning C4101: “iLen”: 未引用的局部变量
+  rtsp_pull.vcxproj -> F:\vs项目\ffmpeg\x64\Debug\rtsp_pull.exe
